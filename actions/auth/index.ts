@@ -7,12 +7,12 @@ import { onGetAllAccountDomains } from "../settings"
 
 export const onLoginUser = async () => {
   const session = await auth();
-  if (!session?.user) redirect("/auth/signup")
+  if (!session?.user) redirect("/")
   else{
     try {
         const authenticated = await prisma.user.findUnique({
           where: {
-            id: session.user.id
+            email: session.user.email! 
           }, 
           select: {
             name: true,

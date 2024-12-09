@@ -9,7 +9,7 @@ export const onGetAllAccountDomains = async () => {
   try {
     const domains = await prisma.user.findUnique({
       where: {
-        id : session.user.id,
+        email: session.user.email!
       }, 
       select: {
         id: true,
@@ -44,7 +44,7 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
   try {
     const subscription = await prisma.user.findUnique({
       where: {
-        id: session.user.id,
+        email: session.user.email! 
       }, 
       select: {
         _count: {
@@ -62,7 +62,7 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
 
     const domainExists = await prisma.user.findFirst({
       where: {
-        id: session.user.id,
+        email: session.user.email!,
         domains: {
           some: {
             name: domain, 
@@ -82,7 +82,7 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
       ) {
         const newDomain = await prisma.user.update({
           where: {
-            id: session.user.id,
+            email: session.user.email!, 
           },
           data: {
             domains: {

@@ -23,12 +23,12 @@ const MaxMenu = ({ current, domains, onExpand }: Props) => {
     <div className="py-3 px-4 flex flex-col h-full">
       <div className="flex justify-between items-center">
         <Image
-          src="/images/logo.png"
+          src="/images/arianalogo.png"
           alt="LOGO"
           sizes="100vw"
-          className="animate-fade-in opacity-0 delay-300 fill-mode-forwards"
+          className="animate-fade-in opacity-0 delay-300 fill-mode-forwards ml-6"
           style={{
-            width: '50%',
+            width: '60%',
             height: 'auto',
           }}
           width={0}
